@@ -1,13 +1,13 @@
 <h2> <%=@cocktail.name%> </h2> </br>
 <h4> Recipe: </h4> </br>
-<%= link_to new_cocktail_dose_path(@cocktail), class: "btn btn-primary" do %>
+<%= link_to new_cocktail_dose_path(@cocktail) do %>
 <i class="fa fa-plus" aria-hidden="true"></i>
 <% end %>
 <% @cocktail.doses.each do |dose| %>
-  <p> <strong> description: </strong> <%= dose.description %> </p>
   <p> <strong> ingredient: </strong> <%= dose.ingredient.name %> </p>
+  <p> <strong> ingredient: </strong> <%= dose.description %> </p>
   <p>--------------------------------------</p>
-  <%= link_to cocktail_dose_path(@cocktail, dose), :method => :delete, class: "btn btn-danger" do %>
+  <%= link_to cocktail_dose_path(@cocktail, dose), :method => :delete do %>
   <i class="fa fa-trash-o" aria-hidden="true"></i>
 <% end %>
 <% end %>
