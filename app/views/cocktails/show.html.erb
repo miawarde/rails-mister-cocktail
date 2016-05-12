@@ -1,0 +1,24 @@
+<h2> <%=@cocktail.name%> </h2> </br>
+<h4> Recipe: </h4> </br>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+<% @cocktail.doses.each do |dose| %>
+  <p> description: <%= dose.description %> </p>
+  <p> ingredient: <%= dose.ingredient.name %> </p>
+  <p>--------------------------------------</p>
+  <%= link_to cocktail_dose_path(@cocktail, dose), :method => :delete, class: "btn btn-danger" do %>
+  <i class="fa fa-trash-o" aria-hidden="true"></i>
+<% end %>
+<% end %>
+
+
+<style>
+p, h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.btn {
+  text-align: center;
+}
+
+</style>
+
